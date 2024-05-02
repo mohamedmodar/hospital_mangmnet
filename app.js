@@ -81,7 +81,7 @@ console.log(PatientID);
 var doctorIds;
 
 
-
+//this is comment to just edit the file
 
 client.query(`SELECT doctorid FROM public.doctor;`, (err,res)=>{
     if(!err){
