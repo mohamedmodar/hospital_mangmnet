@@ -1,0 +1,49 @@
+body {
+    /* Set background image and control its behavior */
+    background-image: url("https://criticalcaremedicine.lk/wp-content/uploads/2021/06/WhatsApp-Image-2021-06-20-at-10.26.49-PM-e1627299379804.jpeg"); /* Replace with path to your image */
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  
+    /* Set font and background color for the body (optional) */
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  /* Style the container that holds the form (optional) */
+  .container {
+    /* Set a width for the form container */
+    width: 50%;
+    margin: 0 auto; /* Center the form horizontally */
+    padding: 10px 20px ;
+    background-color:  /* White background with some transparency */
+    border-radius: 5px; /* Add some rounded corners */
+  }
+  
+  /* Style the form itself (optional) */
+  form {
+    display: flex; /* Arrange form elements in a row */
+    flex-direction: column; /* Stack elements vertically */
+    gap: 10px; /* Add some space between form elements */
+  }
+  
+  /* Style labels (optional) */
+  label {
+    font-weight: bold;
+  }
+  /* Style the submit button */
+input[type="submit"] {
+    background-color: #007bff; /* Blue background color */
+    color: white; /* White text color */
+    padding: 10px 20px; /* Add some padding */
+    border: none; /* Remove default border */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Change cursor to indicate clickability */
+  }
+  input[type="text"] {
+    width: 100%; /* Make the input fields 100% of the container width */
+    padding: 10px; /* Add some padding for better readability */
+    font-size: 16px; /* Increase the font size of the text in the input fields */
+    border: 1px solid #ccc; /* Add a thin border */
+    border-radius: 3px; /* Add some rounded corners to the input fields */
+  }

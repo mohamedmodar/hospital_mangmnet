@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital system</title>
+    <link rel="stylesheet" href="mystyle.css">
+
+</head>
+
+<body>
+    <div class="container">
+            <h1> hospital mangment system</h1>
+            <h3>to add new patient please fill the form</h3>
+            <h4>teke note thaat you must fill the id of <br><br> (doctor, nurse, wardboy) with availabe id</h4>
+         
+    <form action="http://localhost:4000/form" method="post">
+        <label for="name"> name:</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        <label for="PatientID">PatientID:</label>
+        <input type="text" id="PatientID" name="PatientID"><br><br>
+
+        <label for="address"> address:</label>
+        <input type="text" id="address" name="address"><br><br>
+
+        <label for="Disease">Disease:</label>
+        <input type="text" id="Disease" name="Disease"><br><br>
+
+        <label for="Treatment_details">Treatment_details:</label>
+        <input type="text" id="Treatment_details" name="Treatment_details"><br><br>
+
+        <label for="DoctorID">DoctorID:</label>
+        <input type="text" id="DoctorID" name="DoctorID"><br><br>
+
+        <label for="RoomNumber">RoomNumber:</label>
+        <input type="text" id="RoomNumber" name="RoomNumber"><br><br>
+
+        <label for="NurseID">NurseID:</label>
+        <input type="text" id="NurseID" name="NurseID"><br><br>
+
+        <label for="WardBoyID">WardBoyID:</label>
+        <input type="text" id="WardBoyID" name="WardBoyID"><br><br>
+
+        <label for="BillID">BillID:</label>
+        <input type="text" id="BillID" name="BillID"><br><br>
+
+        <input type="submit" value="Submit">
+       <!--<button onclick="client.query(`SELECT doctorid FROM public.doctor;`, (err,res)=>{
+          if(!err){
+              // console.log(res.rows);
+             const doctorIds = res.rows.map(row => row.doctorid); // Extract doctor IDs
+      
+          `; 
+          console.log(console.log(doctorIds);
+);
+          } else {
+              console.log(err.message);
+          }
+          client.end;
+      })" > doctors</button>
+      </form>
+        </div>
+
+
+
+
+      
+    --> 
+</body>
+</html>
+

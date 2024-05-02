@@ -1,0 +1,31 @@
+{
+  "name": "hospital-mangmnet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mohamedmodar/hospital_mangmnet.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mohamedmodar/hospital_mangmnet/issues"
+  },
+  "homepage": "https://github.com/mohamedmodar/hospital_mangmnet#readme",
+  "dependencies": {
+    "db-migrate-pg": "^1.5.2",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "path": "^0.12.7",
+    "pg": "^8.11.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
