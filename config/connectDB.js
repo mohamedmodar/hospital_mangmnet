@@ -1,19 +1,20 @@
-var { Client }  = require ('pg');
+const Pool = require ('pg').Pool;
 
 //connected to database
-module.exports = async ()=>{
 
-var client = new Client({
+
+ const pool = new Pool({
     host: "localhost",
     database: "hospital",
     user: "postgres",
-    password: "modar5"
+    password: "modar5",
+    port: 5432,
 });
 
-
+module.exports = pool;
     try {
 
-        await client.connect().then(() => {
+         pool.connect().then(() => {
             console.log("connected to database");
         })
       
@@ -21,5 +22,5 @@ var client = new Client({
     catch(error){
         console.log("connecting faild to database" , error);
     }
-}
+
 

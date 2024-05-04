@@ -3,9 +3,7 @@ const express = require("express");
 require("dotenv").config();
 const PORT = process.env.PORT || 4000 ;
 const router = require("express").Router();
-
-const connectedToDb = require("./config/connectDB");
-connectedToDb();
+const pool = require("./config/connectDB");
 
 //init app
 const app = express();
