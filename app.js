@@ -3,16 +3,9 @@ const express = require("express");
 require("dotenv").config();
 const PORT = process.env.PORT || 4000 ;
 const router = require("express").Router();
-require ('dotenv').config();
-const { Client }  = require ('pg');
 
-/*
-const {
-POSTGRES_HOST,
-POSTGRES_DB,
-POSTGRES_USER,
-POSTGRES_PASSWORD
-} = process.env */
+const connectedToDb = require("./config/connectDB");
+connectedToDb();
 
 //init app
 const app = express();
@@ -21,67 +14,32 @@ const app = express();
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
-express.static("public")
-//app.set("views", path.join(__dirname,"views"));
-//app.set("view engine","ejs");
 
-//connected to database
-const client = new Client({
-    host: "localhost",
-    database: "hospital",
-    user: "postgres",
-    password: "modar5"
-});
+//express.static("public")
 
-client.connect().then(() => {
-    console.log("connected to database");
-})
-.catch((e) => {
-console.log(e);
-});
+//engine
+app.set("views", path.join(__dirname,"views"));
+app.set("view engine","ejs");
 
-var PatientID ,
-name ,
-address ,
-Disease ,
-Treatment_details ,
-DoctorID ,
-RoomNumber ,
-NurseID ,
-BillID ,
-WardBoyID ;
 
-app.post("/form",(req,res)=>{
- 
-    name = req.body.name;
-    PatientID = req.body.PatientID;
-    address = req.body.address;
-    Disease = req.body.Disease;
-    Treatment_details = req.body.Treatment_details;
-    DoctorID = req.body.DoctorID;
-    RoomNumber = req.body.RoomNumber;
-    NurseID = req.body.NurseID;
-    BillID = req.body.BillID;
-    WardBoyID = req.body.WardBoyID;
 
-console.log(PatientID);
- client.query(`INSERT INTO public.patient(
-	patientid, name, address, disease, treatment_details, doctorid, roomnumber, nurseid, billid, wardboyid)
-	VALUES (${PatientID},'${name}', '${address}','${Disease}', null, ${DoctorID}, ${RoomNumber}, ${NurseID}, ${BillID}, ${WardBoyID});`, (err,res)=>{
-    if(!err){
-        console.log(res.rows);
-    } else {
-        console.log(err.message);
-    }
-    client.end;
-});
 
+app.use("", require("./routers/patientRouter"));
+
+
+//server
+app.listen(PORT, () => {
+    console.log(`server is runing in ${process.env.NODE_ENV} up and runing on ${PORT}`);
 
 });
-var doctorIds;
 
 
-//this is comment to just edit the file
+
+
+
+//this is comment to just edit the file\
+
+/*
 
 client.query(`SELECT doctorid FROM public.doctor;`, (err,res)=>{
     if(!err){
@@ -96,7 +54,6 @@ client.query(`SELECT doctorid FROM public.doctor;`, (err,res)=>{
     client.end;
 
 })
-
 
 
 client.query(`select nurseid from public.nurse;`, (err,res)=>{
@@ -152,6 +109,6 @@ client.query(`select billid from public.bill;`, (err,res)=>{
 })*/ 
 
 
-app.listen(PORT, () => {
-    console.log(`server is runing in ${process.env.NODE_ENV} up and runing on ${PORT}`)
-});
+
+
+
