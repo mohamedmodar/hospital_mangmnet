@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('layout/header') %>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/css/bootstrap.min.css"
+    integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+     crossorigin="anonymous" referrerpolicy="no-referrer" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class=" container">
+        <div class="row my-10">
+            <div class="col-lg-12">
+                <div class="table-responsive">
+                  <!-- to get all data from data base and make a loop on every element in the array:-->
+                  <!--for doctors-->
+  <% if (doctors.length > 0) { %>  <table class="table table-responsive ">
+      <thead>
+        <tr class="table-dark">
+          <th scope="col">id</th>
+          <th scope="col">name</th>
+          <th scope="col">specialization</th>
+          <th scope="col">address</th>
+          <th scope="col"></th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <h1>the available doctors is :  </h1>
+
+        <% doctors.forEach((row, index) => { %>
+          <tr>
+            <th scope="row"><%= row.doctorid %></th>
+            <td><%= row.name %></td>
+            <td><%= row.specalization %></td>
+            <td><%= row.adress %></td>
+            <td>
+              <a href="/edit/<%= row.id %>" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
+              <a href="/delete/<%= row.id %>" class="text-danger"><i class="fas fa-trash fa-lg mx-1"></i></a>
+            </td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <h1 class="text-center text-secondary mt-5">No doctors found in database!</h1>
+  <% } %>
+</div>
+</div>
+</div>
+</div>
+
+
+                  <!--for nurses-->
+
+<div class=" container">
+  <div class="row my-10">
+      <div class="col-lg-12">
+          <div class="table-responsive">
+<% if (nurses.length > 0) { %>  <table class="table table-responsive ">
+<thead>
+  <tr class="table-dark">
+    <th scope="col">id</th>
+    <th scope="col">name</th>
+    <th scope="col">shift_details</th>
+    <th scope="col"></th>
+
+  </tr>
+</thead>
+<tbody>
+  <h1>the available nurse is :  </h1>
+  <% nurses.forEach((row, index) => { %>
+    <tr>
+      <th scope="row"><%=  row.nurseid %></th>
+      <td><%= row.name %></td>
+      <td><%= row.shift_details %></td>
+      <td>
+        <a href="" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
+        <a href="" class="text-danger"><i class="fas fa-trash fa-lg mx-1"></i></a>
+      </td>
+    </tr>
+  <% }); %>
+</tbody>
+</table>
+<% } else { %>
+<h1 class="text-center text-secondary mt-5">No nurses found in database!</h1>
+<% } %>
+</div>
+</div>
+</div>
+</div>
+
+                  <!--for rooms-->
+
+<div class=" container">
+  <div class="row my-10">
+      <div class="col-lg-12">
+          <div class="table-responsive">
+<% if (rooms.length > 0) { %>  <table class="table table-responsive ">
+<thead>
+  <tr class="table-dark">
+    <th scope="col">number of room </th>
+    <th scope="col">type of room </th>
+    <th scope="col"></th>
+
+  </tr>
+</thead>
+<tbody>
+  <h1>the available rooms is :  </h1>
+  <% rooms.forEach((row, index) => { %>
+    <tr>
+      <th scope="row"><%= row.roomnumber %></th>
+      <td><%= row.type_of_room %></td>
+      <td>
+        <a href="" class="text-success"><i class="fas fa-edit fa-lg mx-1"></i></a>
+        <a href="" class="text-danger"><i class="fas fa-trash fa-lg mx-1"></i></a>
+      </td>
+    </tr>
+  <% }); %>
+</tbody>
+</table>
+<% } else { %>
+<h1 class="text-center text-secondary mt-5">No nurses found in database!</h1>
+<% } %>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>

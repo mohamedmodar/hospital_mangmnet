@@ -21,7 +21,6 @@ app.set("view engine","ejs");
 
 
 
-
 app.use("", require("./routers/patientRouter"));
 
 
@@ -31,80 +30,6 @@ app.listen(PORT, () => {
 
 });
 
-
-
-
-
-//this is comment to just edit the file\
-
-/*
-
-client.query(`SELECT doctorid FROM public.doctor;`, (err,res)=>{
-    if(!err){
-        // console.log(res.rows);
-        
-       var doctorIds = res.rows.map(row => row.doctorid); // Extract doctor IDs
-   
-    console.log("the avaialable doctors id: " + doctorIds);
-    } else {
-        console.log(err.message);
-    }
-    client.end;
-
-})
-
-
-client.query(`select nurseid from public.nurse;`, (err,res)=>{
-    if(!err){
-        // console.log(res.rows);
-        
-       const nurseid = res.rows.map(row => row.nurseid); // Extract doctor IDs
-   
-    console.log("the avaialable nurses id: " + nurseid);
-    } else {
-        console.log(err.message);
-    }
-    client.end;
-})
-
-client.query(`select wardboyid from public.wardboy;`, (err,res)=>{
-    if(!err){
-        // console.log(res.rows);
-        
-       const wardboyid = res.rows.map(row => row.wardboyid); // Extract doctor IDs
-   
-    console.log("the avaialable wardboy id: " + wardboyid);
-    } else {
-        console.log(err.message);
-    }
-    client.end;
-})
-
-client.query(`select billid from public.bill;`, (err,res)=>{
-    if(!err){
-        // console.log(res.rows);
-        
-       const billid = res.rows.map(row => row.billid); // Extract doctor IDs
-   
-    console.log("the avaialable bill id: " + billid);
-    } else {
-        console.log(err.message);
-    }
-    client.end;
-})
-	
-
-
-
-
-
-//  res.sendFile(__dirname + "/public/index.html")
-
-
-
-/* app.get("/", (req,res)=>{
-    res.render("index")
-})*/ 
 
 
 
