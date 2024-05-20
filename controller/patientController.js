@@ -23,14 +23,40 @@ const pool = require("../config/connectDB");
     patientid, name, address, disease, treatment_details, doctorid, roomnumber, nurseid, billid, wardboyid)
     VALUES (${PatientID},'${name}', '${address}','${Disease}', '${Treatment_details}', ${DoctorID}, ${RoomNumber}, ${NurseID}, ${BillID}, ${WardBoyID});`, (err,res)=>{
     if(!err){
-        console.log(res.rows);
+        console.log('Patient added successfully!');
     } else {
-        console.log(err.message);
+        console.error(err.message);
+
     }
 
     pool.end;
 
 });
-
 res.redirect("/result"); 
 };
+
+module.exports.getUsersCtrl= async(req,res)=>{ 
+    try {
+      const client = await pool.connect();
+
+      const Patients = await client.query('SELECT * FROM public.patient;'); 
+      const patients = Patients.rows;
+
+      const Doctors = await client.query('SELECT * FROM public.doctor;'); 
+      const doctors = Doctors.rows;
+
+      const Nurses = await client.query('SELECT * FROM public.nurse;'); 
+      const nurses = Nurses.rows;
+
+      const Rooms = await client.query('SELECT * FROM public.room ORDER BY roomnumber ASC ;'); 
+      const rooms = Rooms.rows;
+      client.release();
+    
+     res.render("../views/home",{title: "the available doctors is : ", doctors , nurses, rooms, patients});
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error retrieving users');
+    }
+   
+   
+   };
